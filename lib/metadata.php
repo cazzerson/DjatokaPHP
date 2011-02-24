@@ -64,7 +64,6 @@ class Djatoka_Metadata
         } else {
             $this->_rftId = $rftId;
             $this->_needsUpdate = true;
-            //$this->_retrieveMetadata();
             return $this;
         }
     }
