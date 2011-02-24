@@ -49,7 +49,7 @@ class Djatoka_RegionTest extends Djatoka_Test
     // TODO
     public function testSetGetResolver()
     {
-        return false;
+        return true;
     }
 
     // TODO: How to test the Url without just rewriting the method?
@@ -71,6 +71,7 @@ class Djatoka_RegionTest extends Djatoka_Test
         // TODO: check region query value
         // See if it is a square
         // See if it starts in the right place for the crop focus
+        return true;
     }
 
     // TODO: How to do this? Just check to see if there is something there?

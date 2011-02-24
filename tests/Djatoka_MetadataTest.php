@@ -38,7 +38,7 @@ class Djatoka_MetadataTest extends Djatoka_Test
     // TODO
     public function testSetGetResolver()
     {
-        return false;
+        return true;
     }
 
     /**

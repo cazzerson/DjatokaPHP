@@ -14,7 +14,7 @@ class Djatoka_Net
         //
         $ch = curl_init();
         $timeout = 30;
-        curl_setopt($ch, CURLOPT_USERAGENT, "NCSU Libraries Course Views");
+        curl_setopt($ch, CURLOPT_USERAGENT, "DjatokaPHP Library");
         curl_setopt($ch, CURLOPT_URL, $this->_currentUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FAILONERROR, 1);

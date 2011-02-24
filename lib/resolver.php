@@ -12,7 +12,6 @@ class Djatoka_Resolver
     protected $_djatokaRftIdPrefix = 'rft_id=';
     protected $_pingSvcString = 'svc_id=info:lanl-repo/svc/ping';
     protected $_djatokaConn;
-    // TODO: should we hang on to region and metadata objects? performance vs. flexibility
 
     function __construct($baseUrl)
     {
