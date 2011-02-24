@@ -123,12 +123,12 @@ class Djatoka_Metadata
             for ($currentLevel = 0; $currentLevel <= $highestLevel; $currentLevel++) {
                 // Differences in level represent halving the dimensions of the image
                 // from the next highest level
-                $dimensionsDividend = pow(2, ($highestLevel - $currentLevel));
+                $dimensionsDivisor = pow(2, ($highestLevel - $currentLevel));
 
 
                 // To copy Djatoka's level calcs...
-                $allLevels[$currentLevel]['height'] = (int) round(floatval($this->_metadataFields['height']) / $dimensionsDividend, 0);
-                $allLevels[$currentLevel]['width'] = (int) round(floatval($this->_metadataFields['width']) / $dimensionsDividend, 0);
+                $allLevels[$currentLevel]['height'] = (int) round(floatval($this->_metadataFields['height']) / $dimensionsDivisor, 0);
+                $allLevels[$currentLevel]['width'] = (int) round(floatval($this->_metadataFields['width']) / $dimensionsDivisor, 0);
             }
             $this->_allLevels = $allLevels;
         } else {
