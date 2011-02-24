@@ -3,3 +3,45 @@ Based heavily on work in Ruby by Jason Ronallo:
 https://github.com/jronallo/djatoka
 
 Documentation coming soon. For now, look at the tests and the codes. This library supports some interactions with the Djatoka image server, and uses a method-chaining design. It also currently supports the generation some pre-defined image square crops (top_left, center, bottom_right), as well as edge-trimming of these crops. Play around and let me know if you notice any problems or have any ideas for improvements.
+
+
+To get started, you could try:
+
+<?php
+
+require_once("djatokaPHP/lib/resolver.php");
+
+$resolver = new Djatoka_Resolver('http://YOUR.HOST/adore-djatoka/resolver?');
+$region = $resolver->region('ITEMID');
+$metadata = $resolver->metadata('ITEMID');
+?>
+<html>
+<head>
+<title>DjatokaPHP Test</title>
+</head>
+<body>
+
+<?php
+print '<img src="' . $region->scale(100)->url() . '"/>';
+print '<img src="' . $region->scale(250)->url() . '"/>';
+print '<img src="' . $region->scale(800)->url() . '"/>';
+print '<img src="' . $region->scale(500)->square('center')->url() . '"/>';
+?>
+</body>
+</html>
+
+
+
+Or...
+
+
+<?php
+require_once("djatokaPHP/lib/resolver.php");
+
+$resolver = new Djatoka_Resolver('http://YOUR.HOST/adore-djatoka/resolver?');
+$region = $resolver->region('ITEMID');
+$metadata = $resolver->metadata('ITEMID');
+
+header('Content-Type:image/jpeg');
+echo $region->scale(600)->data();
+?>
