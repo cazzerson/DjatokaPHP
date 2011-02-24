@@ -3,8 +3,8 @@
 require_once("../lib/resolver.php");
 
 $resolver = new Djatoka_Resolver('http://YOUR.HOST/adore-djatoka/resolver?');
-$region = $resolver->region('0000002');
-$metadata = $resolver->metadata('0000002');
+$region = $resolver->region('ITEMID');
+$metadata = $resolver->metadata('ITEMID');
 //header('Content-Type:image/jpeg');
 //echo $region->scale(100)->data();
 
@@ -18,4 +18,3 @@ print '<img src="' . $region->scale(500)->square('top_left')->url() . '"/>';
 print '<img src="' . $region->scale(500)->square('bottom_right')->url() . '"/>';
 print '<br />';
 print_r($metadata->fields());
-// id: 0000002
