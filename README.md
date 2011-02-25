@@ -68,7 +68,7 @@ Jason Casden
 
 Based heavily on work in Ruby by Jason Ronallo:
 
-https://github.com/jronallo/djatoka
+[https://github.com/jronallo/djatoka](https://github.com/jronallo/djatoka)
 
 Copyright
 ----------
