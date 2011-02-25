@@ -1,7 +1,7 @@
 DjatokaPHP
 ==============
 
-This library supports some interactions with the Djatoka image server, and uses a method-chaining design. It also currently supports the generation some pre-defined image square crops (top_left, center, bottom_right), as well as edge-trimming of these crops. Play around and let me know if you notice any problems or have any ideas for improvements. This documentation should get you started, but please see the code for the full set of methods for now.
+This library supports some interactions with the Djatoka image server, and supports method chaining. It also currently supports the generation some pre-defined image square crops (top_left, center, bottom_right), as well as edge-trimming of these crops. Play around and let me know if you notice any problems or have any ideas for improvements. This documentation should get you started, but please see the code for the full set of methods for now.
 
 Installation
 --------------
