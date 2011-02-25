@@ -12,9 +12,11 @@ Just stick the DjatokaPHP directory into your project directory and include Djat
 
 require_once("djatokaPHP/lib/resolver.php");
 
-$resolver = new Djatoka_Resolver('http://YOUR.HOST/adore-djatoka/resolver?');
-$region = $resolver->region('ITEMID');
-$metadata = $resolver->metadata('ITEMID');
+// Example resolver and ID
+$resolver = new Djatoka_Resolver('http://african.lanl.gov/adore-djatoka/resolver?');
+$itemId = 'info:lanl-repo/ds/5aa182c2-c092-4596-af6e-e95d2e263de3';
+$region = $resolver->region($itemId);
+$metadata = $resolver->metadata($itemId);
 ?>
 <html>
 <head>
@@ -31,11 +33,11 @@ print '<img src="' . $region->scale(500)->rotate('0')->square('center')->url() .
 // Trim 10% off of each edge for a nicer thumbnail
 print '<img src="' . $region->scale(250)->rotate('0')->square('center', .10)->url() . '"/>';
 ?>
-<code>
+<div>
 <?php
 print_r($metadata->fields());
 ?>
-</code>
+</div>
 </body>
 </html>
 
@@ -47,9 +49,10 @@ Or...
 <?php
 require_once("djatokaPHP/lib/resolver.php");
 
-$resolver = new Djatoka_Resolver('http://YOUR.HOST/adore-djatoka/resolver?');
-$region = $resolver->region('ITEMID');
-$metadata = $resolver->metadata('ITEMID');
+// Example resolver and ID
+$resolver = new Djatoka_Resolver('http://african.lanl.gov/adore-djatoka/resolver?');
+$itemId = 'info:lanl-repo/ds/5aa182c2-c092-4596-af6e-e95d2e263de3';
+$region = $resolver->region($itemId);
 
 header('Content-Type:image/jpeg');
 echo $region->scale(600)->data();
