@@ -39,13 +39,11 @@ class Djatoka_Region
     }
 
     // Found by jaron to improve image quality
-    protected function _pickBestSquareLevel($trimPercent=0)
+    protected function _pickBestLevel($scale, $trimPercent=0)
     {
         $bestLevel = $this->_metadata->fields()->levels;
 
-        //return $bestLevel;
-
-        if (false !== $this->scale()) {
+        if (!empty($scale)) {
             $fullLevels = $this->_metadata->levelsArray();
             krsort($fullLevels);
             // We don't need to check the best level--it's the default
@@ -53,12 +51,18 @@ class Djatoka_Region
 
             foreach ($fullLevels as $level => $levelData) {
                 // Make sure the level is plenty big enough, even with zoom/crops
-                if ((($levelData['height'] * (1 - ($trimPercent*2))) >= $this->scale()) && (($levelData['width'] * (1 - ($trimPercent*2))) >= $this->scale())) {
+                if ((($levelData['height'] * (1 - ($trimPercent*2))) >= $scale) && (($levelData['width'] * (1 - ($trimPercent*2))) >= $scale)) {
                     $bestLevel = $level;
                 }
             }
         }
         return $bestLevel;
+    }
+
+    public function setClosestLevelToScale($scale)
+    {
+        $this->level($this->_pickBestLevel($scale));
+        return $this;
     }
 
     protected function _buildRegionUrl()
@@ -73,7 +77,7 @@ class Djatoka_Region
     {
         // FIXME: Changing the level or the scale (esp. the level) after setting 
         // the square region will mess up the region coords
-        $level = $this->_pickBestSquareLevel($trimPercent);
+        $level = $this->_pickBestLevel($this->scale, $trimPercent);
         $this->level($level);
         $levelsArray = $this->_metadata->levelsArray();
         ksort($levelsArray);
