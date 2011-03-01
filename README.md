@@ -10,6 +10,10 @@ Just stick the DjatokaPHP directory into your project directory and include Djat
 
 Example usage
 --------------
+Currently, Djatoka scaling seems to be much more lossy than in-browser scaling. Currently, you may want to consider using the setClosestLevelToScale($scale) method and doing finer scaling in the browser. For more details, see the examples and the [https://github.com/cazzerson/DjatokaPHP/wiki/Djatoka-Image-Scaling-Test](Djatoka Image Scaling Test).
+
+Example usage
+--------------
 
     <?php
 
