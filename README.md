@@ -29,7 +29,10 @@ Example usage
 
     <?php
     print '<img src="' . $region->scale(100)->url() . '"/>';
-    print '<img src="' . $region->scale(250)->rotate('90')->url() . '"/>';
+    print '250 scale: <img src="' . $region->scale(250)->url() . '"/>';
+    // Djatoka scaling isn't as good as browser scaling--see the DjatokaPHP wiki
+    print 'Best level for 250 scale, with browser scaling: <img width="250" src="' . $region->reset()->setClosestLevelToScale(250)->url() . '"/>';
+    print '<img src="' . $region->reset()->scale(250)->rotate('90')->url() . '"/>';
     print '<img src="' . $region->scale(800)->rotate('180')->url() . '"/>';
     print '<img src="' . $region->scale(500)->rotate('0')->square('center')->url() . '"/>';
 
