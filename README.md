@@ -8,9 +8,9 @@ Installation
 
 Just stick the DjatokaPHP directory into your project directory and include DjatokaPHP/lib/resolver.php.
 
-Example usage
+WARNING
 --------------
-Currently, Djatoka scaling seems to be much more lossy than in-browser scaling. Currently, you may want to consider using the setClosestLevelToScale($scale) method and doing finer scaling in the browser. For more details, see the examples and the [https://github.com/cazzerson/DjatokaPHP/wiki/Djatoka-Image-Scaling-Test](Djatoka Image Scaling Test).
+Currently, Djatoka image scaling seems to be much more lossy than in-browser scaling. You may want to consider using the setClosestLevelToScale($scale) method and performing finer scaling in the browser. For more details, see the examples below and the [Djatoka Image Scaling Test](https://github.com/cazzerson/DjatokaPHP/wiki/Djatoka-Image-Scaling-Test).
 
 Example usage
 --------------
