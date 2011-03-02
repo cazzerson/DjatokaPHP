@@ -77,8 +77,17 @@ class Djatoka_Region
     {
         // FIXME: Changing the level or the scale (esp. the level) after setting 
         // the square region will mess up the region coords
-        $level = $this->_pickBestLevel($this->scale, $trimPercent);
-        $this->level($level);
+        $level = $this->level();
+        $scale = $this->scale();
+        if (empty($level)) {
+            if (!empty($scale)) {
+                $level = $this->_pickBestLevel($scale, $trimPercent);
+                $this->level($level);
+            } else {
+                throw new Exception("Squaring an image required a scale or a level to be set first");
+            }
+        }
+
         $levelsArray = $this->_metadata->levelsArray();
         ksort($levelsArray);
 
