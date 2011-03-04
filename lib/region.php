@@ -79,7 +79,7 @@ class Djatoka_Region
         // the square region will mess up the region coords
         $level = $this->level();
         $scale = $this->scale();
-        if (empty($level)) {
+        if ((false === $level) || ('' === $level)) {
             if (!empty($scale)) {
                 $level = $this->_pickBestLevel($scale, $trimPercent);
                 $this->level($level);
@@ -180,7 +180,7 @@ class Djatoka_Region
                 return false;
             }
         } else {
-            $this->_query['svc.level'] = $level;
+            $this->_query['svc.level'] = strval($level);
             return $this;
         }
     }
