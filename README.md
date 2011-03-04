@@ -8,7 +8,7 @@ Installation
 
 Just stick the DjatokaPHP directory into your project directory and include DjatokaPHP/lib/resolver.php.
 
-WARNING
+Djatoka image scaling Considered Harmful
 --------------
 Currently, Djatoka image scaling seems to be much more lossy than in-browser scaling. You may want to consider using the setClosestLevelToScale($scale) method and performing finer scaling in the browser. For more details, see the examples below and the [Djatoka Image Scaling Test](https://github.com/cazzerson/DjatokaPHP/wiki/Djatoka-Image-Scaling-Test).
 
@@ -41,7 +41,8 @@ Example usage
     print '<img src="' . $region->scale(500)->rotate('0')->square('center')->url() . '"/>';
 
     // Trim 10% off of each edge for a nicer thumbnail
-    print '<img src="' . $region->scale(250)->rotate('0')->square('center', .10)->url() . '"/>';
+    print '<img src="' . $region->reset()->scale(250)->square('center', .10)->url() . '"/>';
+    print '<img src="' . $region->reset()->setClosestLevelToScale(250, .10)->square('center', .10)->url() . '"/>';
     ?>
     <div>
     <?php
