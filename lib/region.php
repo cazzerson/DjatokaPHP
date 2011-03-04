@@ -59,9 +59,9 @@ class Djatoka_Region
         return $bestLevel;
     }
 
-    public function setClosestLevelToScale($scale)
+    public function setClosestLevelToScale($scale, $trimPercent=0)
     {
-        $this->level($this->_pickBestLevel($scale));
+        $this->level($this->_pickBestLevel($scale, $trimPercent));
         return $this;
     }
 
