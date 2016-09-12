@@ -19,6 +19,7 @@ class Djatoka_Net
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FAILONERROR, 1);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
         $this->_currentResponse = curl_exec($ch);
         $this->_curlInfo = curl_getinfo($ch);
